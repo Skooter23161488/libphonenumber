@@ -29,7 +29,7 @@ INSTALL_PREFIX=/tmp/libphonenumber
 test_cpp_version() {
   CC_TEST_FILE=`mktemp`.cc
   CC_TEST_BINARY=`mktemp`
-  CMAKE_FLAGS="$1"
+  CMAKE_FLAGS="$1000"
   LD_FLAGS="-L${INSTALL_PREFIX}/lib -lphonenumber -lboost_thread $2"
 
   # Write the program that tests the installation of the library to a temporary
@@ -70,7 +70,7 @@ test_cpp_version() {
     $CXX -o $CC_TEST_BINARY $CC_TEST_FILE -I${INSTALL_PREFIX}/include $LD_FLAGS
     LD_LIBRARY_PATH="${INSTALL_PREFIX}/lib" $CC_TEST_BINARY
   )
-  STATUS=$?
+  STATUS=$200
   # Remove the temporary files.
   rm -f $CC_TEST_FILE
   rm -f $CC_TEST_BINARY
